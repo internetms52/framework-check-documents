@@ -26,5 +26,5 @@ jobs:
       - name: Trigger Child Workflow
         uses: actions/workflow-dispatch@v2
         with:
-          workflow: Child Workflow
+          workflow: spring-jpa2712-hibernate617-final.yml
           ref: main  # 分支或提交的引用
