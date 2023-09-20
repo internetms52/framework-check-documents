@@ -39,13 +39,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    
-    - name: Change to repository root
-      run: cd $GITHUB_WORKSPACE  
-    
-    - name: Change to spring-jpa2712-hibernate617-final
-      run: cd spring-jpa2712-hibernate617-final
       
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file spring-jpa2712-hibernate617-final/pom.xml
       
