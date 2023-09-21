@@ -16,12 +16,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger spring-boot-jpa2712-hibernate617-final
-        uses: actions/checkout@v2
-        with:
-          workflow: spring-boot-jpa2712-hibernate617-final.yml
-          ref: main  # 分支或提交的引用
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+      
+    - name: Build with Maven
+      run: mvn -B package --file spring-boot-quartz/pom.xml
+      
