@@ -41,5 +41,5 @@ jobs:
         cache: maven
       
     - name: Build with Maven
-      run: mvn -B package --file spring-jpa2712-hibernate617-final/pom.xml
+      run: mvn -B package --file spring-boot-jpa2712-hibernate617-final/pom.xml
       
