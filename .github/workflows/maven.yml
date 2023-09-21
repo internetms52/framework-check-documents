@@ -25,14 +25,13 @@ jobs:
         with:
           workflow: spring-boot-jpa2712-hibernate617-final.yml
           ref: main 
-    steps:
+          
       - name: Trigger spring-boot-quartz
         uses: actions/checkout@v2
         with:
           workflow: spring-boot-quartz.yml
           ref: main 
           
-        steps:
       - name: Trigger spring-boot-in-out-logger
         uses: actions/checkout@v2
         with:
