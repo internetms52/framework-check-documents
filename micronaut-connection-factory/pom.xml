@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.internetms52</groupId>
-  <artifactId>demo</artifactId>
+  <artifactId>micronaut-connection-factory</artifactId>
   <version>0.1</version>
   <packaging>${packaging}</packaging>
 
@@ -16,6 +16,7 @@
     <packaging>jar</packaging>
     <jdk.version>17</jdk.version>
     <release.version>17</release.version>
+    <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
     <micronaut.version>4.7.0</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <micronaut.aot.enabled>false</micronaut.aot.enabled>
@@ -31,6 +32,22 @@
   </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>io.micronaut.r2dbc</groupId>
+      <artifactId>micronaut-r2dbc-core</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.data</groupId>
+      <artifactId>micronaut-data-r2dbc</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>r2dbc-postgresql</artifactId>
+      <version>${r2dbc-postgresql.version}</version>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-server-netty</artifactId>
@@ -86,8 +103,12 @@
         <configuration>
           <!-- Uncomment to enable incremental compilation -->
           <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
-
           <annotationProcessorPaths combine.children="append">
+            <path>
+              <groupId>io.micronaut.data</groupId>
+              <artifactId>micronaut-data-processor</artifactId>
+              <version>${micronaut.data.version}</version>
+            </path>
             <path>
               <groupId>io.micronaut</groupId>
               <artifactId>micronaut-http-validation</artifactId>
@@ -107,7 +128,7 @@
           </annotationProcessorPaths>
           <compilerArgs>
             <arg>-Amicronaut.processing.group=io.github.internetms52</arg>
-            <arg>-Amicronaut.processing.module=demo</arg>
+            <arg>-Amicronaut.processing.module=gmail-api</arg>
           </compilerArgs>
         </configuration>
       </plugin>
