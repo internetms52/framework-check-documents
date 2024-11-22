@@ -32,11 +32,11 @@
     </repositories>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>io.r2dbc</groupId>-->
-<!--            <artifactId>r2dbc-pool</artifactId>-->
-<!--            <version>1.0.2.RELEASE</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-pool</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>io.micronaut.r2dbc</groupId>
             <artifactId>micronaut-r2dbc-core</artifactId>
